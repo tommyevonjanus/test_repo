@@ -13,11 +13,11 @@ except KeyError:
     pass
 
 setup(
-    name='stem_citivelocity',
+    name='test',
     python_requires='>=3.7.0, <3.9.0',
     packages=find_packages(),
     version=version,
-    description='Library made for extracting data from the Citi Velocity API and storing in a data lake',
+    description='test libarary',
     author='Ian Draves',
     license='MIT',
     install_requires=['pandas', 'pytz', 'datetime', 'requests'],
