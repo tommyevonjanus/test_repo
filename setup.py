@@ -13,7 +13,7 @@ except KeyError:
     pass
 
 setup(
-    name='test',
+    name='test_package_jhisec',
     python_requires='>=3.7.0, <3.9.0',
     packages=find_packages(),
     version=version,
