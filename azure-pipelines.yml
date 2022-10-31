@@ -1,0 +1,33 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.9'
+  displayName: 'Use Python 3.9'
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install --ignore-installed
+    # pip install -r requirements.txt
+    pip install setuptools
+    pip install twine
+    pip install wheel
+    pip install twine keyring artifacts-keyring
+  displayName: 'Install dependencies'
+
+- script: |
+    python setup.py bdist_wheel 
+  displayName: 'run setup.py'
+
+- task: TwineAuthenticate@1
+  inputs:
+    artifactFeed: Securitized/Securitized
+
+- script: |
+   twine upload -r "Securitized" --config-file $(PYPIRC_PATH) dist/*whl
+   
