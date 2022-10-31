@@ -18,7 +18,7 @@ setup(
     packages=find_packages(),
     version=version,
     description='test libarary',
-    author='Ian Draves',
+    author='Thomas Evon',
     license='MIT',
     install_requires=['pandas', 'pytz', 'datetime', 'requests'],
     classifiers = [
